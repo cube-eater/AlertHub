@@ -5,13 +5,14 @@ import dotenv from "dotenv";
 
 // Routes
 import AuthRoute from './Routes/AuthRoute.js'
+import reportRoutes from './routes/reportRoutes.js';
 
 const app = express();
 
 // Middleware
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-
+app.use('/reports', reportRoutes);
 dotenv.config();
 
 mongoose
